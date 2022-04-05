@@ -1,0 +1,39 @@
+name: 部署网站
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build:
+        # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
+        runs-on: ubuntu-latest
+        steps:
+            # 获取源码
+            - name: 迁出代码
+              # 使用action库  actions/checkout获取源码
+              uses: actions/checkout@master
+
+            # 安装Node14
+            - name: 安装Node14
+              # 使用action库  actions/setup-node安装node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14.0.0
+
+            # 安装依赖
+            - name: 安装依赖
+              run: npm install
+
+            # 打包
+            - name: 打包
+              run: npm run build
+
+            # 发布到vercel
+            - name: 发布到vercel
+              run: npx vercel --token ${VERCEL_TOKEN} --prod
+              env:
+                  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+                  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+                  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
