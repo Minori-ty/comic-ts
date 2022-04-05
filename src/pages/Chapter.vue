@@ -3,19 +3,19 @@
         <router-link to="/"><el-button type="success">回到搜索页面</el-button></router-link>
 
         <div class="grid">
-            <img :src="cover" alt="" />
+            <img :src="cover" class="img" />
             <h1 class="title">{{ name }}</h1>
             <h2 class="datetime">上一次更新时间: {{ list[list.length - 1]?.datetime_created }}</h2>
         </div>
+        <div class="container" v-if="flag">
+            <div class="col" v-for="v in 50">
+                <button class="button">&emsp;&emsp;&emsp;</button>
+            </div>
+        </div>
         <div class="container">
             <span class="col" v-for="item in list">
-                <!-- <el-button @click="to(item)">{{ item.name }}</el-button> -->
                 <button @click="to(item)">{{ item.name }}</button>
             </span>
-        </div>
-        <div class="loading" v-if="flag">
-            <!-- <div class="img"></div> -->
-            <el-button v-for="v in 50" class="button">&emsp;&emsp;&emsp;</el-button>
         </div>
     </div>
 </template>
@@ -60,6 +60,21 @@ search()
 </script>
 
 <style lang="less" scoped>
+.loading() {
+    --loading: #ededed;
+
+    background-color: var(--loading);
+    background: linear-gradient(
+            100deg,
+            rgba(255, 255, 255, 0) 40%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0) 60%
+        )
+        var(--loading);
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s loading ease-in-out infinite;
+}
 .padding {
     padding: 0 100px;
 }
@@ -116,22 +131,14 @@ search()
         // padding: 10px 50px;
     }
 }
-.img,
-.button {
-    --loading: #ededed;
-
-    background-color: var(--loading);
-    background: linear-gradient(
-            100deg,
-            rgba(255, 255, 255, 0) 40%,
-            rgba(255, 255, 255, 0.5) 50%,
-            rgba(255, 255, 255, 0) 60%
-        )
-        var(--loading);
-    background-size: 200% 100%;
-    background-position-x: 180%;
-    animation: 1s loading ease-in-out infinite;
+.container {
+    .col {
+        .button {
+            .loading;
+        }
+    }
 }
+
 .img,
 img {
     --width: 270px;
