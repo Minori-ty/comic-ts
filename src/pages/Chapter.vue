@@ -25,6 +25,9 @@ import { ref } from 'vue'
 import { searchChapter } from '../request/relacomic'
 import { chapterList } from '../types/relacomic'
 import { useRoute, useRouter } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import type { Action } from 'element-plus'
+
 defineProps({
     cover: {
         type: String,
@@ -52,9 +55,21 @@ const list = ref<chapterList | []>([])
 const cover = useRoute().query.cover
 const name = useRoute().query.name
 const search = async () => {
-    const data = await searchChapter(path_word)
-    list.value = data.results.list
-    flag.value = false
+    try {
+        const data = await searchChapter(path_word)
+        list.value = data.results.list
+        flag.value = false
+    } catch {
+        ElMessageBox.alert('请求失败，请翻墙搜索！', '提示', {
+            confirmButtonText: 'OK',
+            callback: () => {
+                ElMessage({
+                    type: 'error',
+                    message: `请翻墙重试！`,
+                })
+            },
+        })
+    }
 }
 search()
 </script>
