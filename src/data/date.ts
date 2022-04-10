@@ -19,6 +19,11 @@ const date = [
                 url: 'https://img9.doubanio.com/view/photo/l/public/p2197828404.webp',
                 path: 'haizeiwang',
             },
+            {
+                title: '间谍过家家',
+                url: 'https://img1.doubanio.com/view/photo/l/public/p2869306649.webp',
+                path: 'jiandieguojiajia',
+            },
         ],
     },
     {
@@ -76,7 +81,13 @@ const date = [
     {
         date: '星期五',
         name: '5',
-        list: [],
+        list: [
+            {
+                title: '怪兽8号',
+                url: 'https://mirror2.mangafunc.fun/comic/guaishou8hao/cover/82a05d94-c386-11ea-b77d-00163e0ca5bd.jpg!kb_m_item',
+                path: 'guaishou8hao',
+            },
+        ],
     },
     {
         date: '星期六',
@@ -125,6 +136,18 @@ const day = [
         url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2571212851.webp',
         path: 'daerwenyouxi',
         day: 12,
+    },
+    {
+        title: '朋友游戏',
+        url: 'https://img2.doubanio.com/view/photo/l/public/p2869395672.webp',
+        path: 'pengyouyouxi',
+        day: 9,
+    },
+    {
+        title: '碧蓝之海',
+        url: 'https://img9.doubanio.com/view/photo/l/public/p2525362524.webp',
+        path: 'grandblue',
+        day: 7,
     },
 ]
 
