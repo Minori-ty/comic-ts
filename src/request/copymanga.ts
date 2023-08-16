@@ -1,6 +1,16 @@
 import { COPYMANGA_SEARCH_API, COPYMANGA_CHAPTER_API, COPYMANGA_IMAGES_API } from '../api'
-import axios from 'axios'
+import f from 'axios'
 import type { resluts, chapterResults, comicResults, imagesResults } from '../types/copymanga'
+
+const axios = f.create({
+    headers: {
+        'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+        'Sec-Ch-Ua-Platform': 'Windows',
+        'Sec-Ch-Ua-Mobile': '?0',
+        'Sec-Ch-Ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+    },
+})
 
 //搜索关键词
 export const search = async (count: number, keywords: string) => {
@@ -45,7 +55,7 @@ export const searchImages = async (comic_id: string, uuid: string) => {
             },
         }
     )
-    console.log(data.results)
+    // console.log(data.results)
 
     return data
 }

@@ -9,9 +9,10 @@
 
     <h1 class="fixed">{{ title }}</h1>
     <div class="wrap" ref="wrapRef">
-        <div v-for="item in list">
-            <div class="skeleton"></div>
-            <img :data-src="item.url" src="#" />
+        <!-- <div class="skeleton"></div>
+        <img :data-src="item.url" src="#" /> -->
+        <div v-for="(item, index) in list" ref="container">
+            <img :src="item.url" loading="eager" :index="index" :onload="() => preload(index)" />
         </div>
         <h1 v-if="v == 3">这是限制级漫画，请去其他地方观看</h1>
     </div>
@@ -33,13 +34,7 @@ const reg1 = /(?<=comic\/)([A-Za-z-]+)(?=(\/)?)/g
 const reg2 = /(?<=\/)([A-Za-z0-9-]+)(?=(\/)?)/g
 
 let list = ref<contentsList | []>([])
-// let prev = ref('')
-// let next = ref('')
-// let title = ref('')
-// let str = ref('')
-// let comic_id = ref('')
-// let uuid = ref('')
-// let comic_path_word = ref('')
+const container = ref<HTMLDivElement>()
 
 let comicInfo = reactive({
     prev: '',
@@ -67,7 +62,6 @@ getComicInfo()
 let v = ref()
 const search = async () => {
     const { results } = await searchImages(comic_id.value, uuid.value)
-    console.log(results.chapter.contents)
 
     const chapter = results.chapter
     const { path_word, restrict } = results.comic
@@ -91,14 +85,19 @@ const changeChapter = async (to: string) => {
     await router.push(`/comic/${comic_id.value}/${to}`)
     list.value = []
     title.value = ''
-    await getComicInfo()
+    getComicInfo()
     search()
 }
-const wrapRef = ref()
+const wrapRef = ref<HTMLDivElement>()
 
 onUpdated(() => {
-    useLazyload()
+    // useLazyload()
 })
+function preload(index: number) {
+    console.log(index)
+    const nextimg = document.querySelector(`[index="${index + 1}"]`)
+    nextimg?.setAttribute('loading', 'eager')
+}
 </script>
 
 <style lang="less" scoped>
