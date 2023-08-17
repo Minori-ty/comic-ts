@@ -33,6 +33,7 @@ export default defineConfig({
             algorithm: 'gzip',
             ext: '.gz',
         }),
+        myplugin(),
     ],
     build: {
         brotliSize: false,

@@ -13,7 +13,6 @@
         "declaration": true,
         "declarationDir": "./types",
         "typeRoots": ["./types"],
-        "types": ["element-plus/global"],
         "emitDeclarationOnly": true
     },
     "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

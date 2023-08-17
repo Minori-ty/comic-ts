@@ -1,5 +1,5 @@
 import { mapDate } from '../utils/mapDate'
-const date = [
+export const date = [
     {
         date: '星期一',
         name: '1',
@@ -11,7 +11,7 @@ const date = [
             },
             {
                 title: '咒术回战',
-                url: 'https://img3.doubanio.com/view/subject/l/public/s29955210.jpg',
+                url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2889693741.webp',
                 path: 'zhoushuhuizhan',
             },
             {
@@ -63,7 +63,7 @@ const date = [
         list: [
             {
                 title: '辉夜大小姐想让我告白',
-                url: 'https://mirror.mangafunc.fun/comic/hydxjxrwgb/cover/1ae72308-abaf-11e9-8ef6-024352452ce0.jpg!kb_m_item',
+                url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2702426153.webp',
                 path: 'hydxjxrwgb',
             },
             {
@@ -84,7 +84,7 @@ const date = [
         list: [
             {
                 title: '怪兽8号',
-                url: 'https://mirror2.mangafunc.fun/comic/guaishou8hao/cover/82a05d94-c386-11ea-b77d-00163e0ca5bd.jpg!kb_m_item',
+                url: 'undefined',
                 path: 'guaishou8hao',
             },
         ],
@@ -106,7 +106,7 @@ const date = [
         list: [],
     },
 ]
-const day = [
+export const day = [
     {
         title: '转生成为了只有乙女游戏破灭Flag的邪恶大小姐',
         url: 'https://img2.doubanio.com/view/photo/m/public/p2590345102.webp',

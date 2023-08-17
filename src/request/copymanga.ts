@@ -50,7 +50,7 @@ export const searchImages = async (comic_id: string, uuid: string) => {
         `${COPYMANGA_IMAGES_API}/${comic_id}/chapter/${uuid}?timeout=10000`,
         {
             params: {
-                platform: 1,
+                platform: 3,
                 _update: true,
             },
         }

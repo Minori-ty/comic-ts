@@ -26,7 +26,6 @@ import { searchChapter } from '../request/relacomic'
 import { chapterList } from '../types/relacomic'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import type { Action } from 'element-plus'
 
 defineProps({
     cover: {

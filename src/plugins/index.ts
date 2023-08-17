@@ -1,4 +1,6 @@
 import { Plugin } from 'vite'
+import findImage from '../utils/findImage'
+
 export default function myplugin(): Plugin {
     return {
         name: 'myplugin',
@@ -16,8 +18,12 @@ export default function myplugin(): Plugin {
             console.log('4')
         },
         configureServer(server) {
-            console.log('5')
-            server.middlewares.use((req, res, next) => {
+            let flag = false
+            server.middlewares.use(async (req, res, next) => {
+                if (!flag) {
+                    await findImage()
+                    flag = true
+                }
                 next()
             })
         },
@@ -29,7 +35,7 @@ export default function myplugin(): Plugin {
             if (source === 'ss') {
                 return source
             }
-            console.log(source)
+            // console.log(source)
             return null
         },
         load(id) {

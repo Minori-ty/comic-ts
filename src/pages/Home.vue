@@ -109,13 +109,14 @@ const search = async () => {
     comicList.value = [...comicList.value, ...list.value] as list
     // console.log(list)
 }
-
+let isComplete = false
 window.onscroll = function () {
     var isBottom =
         getScrollTop() + getWindowHeight() == getScrollHeight() ||
         getScrollTop() + getWindowHeight() + 1 == getScrollHeight()
-    if (isBottom) {
+    if (isBottom && !isComplete) {
         search()
+        isComplete = true
     }
 }
 </script>
