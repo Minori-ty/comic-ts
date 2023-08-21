@@ -4,17 +4,10 @@ import findImage from '../utils/findImage'
 export default function myplugin(): Plugin {
     return {
         name: 'myplugin',
-        async options(options) {
-            console.log('1')
-            return new Promise(async (resolve) => {
-                console.log('options')
 
-                await findImage()
-                return resolve(options)
-            })
-        },
-        buildStart() {
+        options(oprions) {
             console.log('2')
+            return oprions
         },
         config(config) {
             // console.log(config)
@@ -52,6 +45,13 @@ export default function myplugin(): Plugin {
             // console.log(code)
 
             return code
+        },
+        async generateBundle() {
+            return new Promise(async (resolve) => {
+                console.log('\nbuild\n')
+                await findImage()
+                return resolve()
+            })
         },
     }
 }

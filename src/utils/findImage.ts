@@ -20,14 +20,6 @@ const cover: ICover = {
         alt: '呪術廻戦 2',
         url: 'https://movie.douban.com/subject/35765350/',
     },
-    达尔文游戏: {
-        alt: 'ダーウィンズゲーム',
-        url: 'https://movie.douban.com/subject/30372352/',
-    },
-    石纪元: {
-        alt: 'Dr.STONE 龍水',
-        url: 'https://movie.douban.com/subject/35705828/',
-    },
 }
 
 /** 查找最新的封面 */
@@ -71,15 +63,15 @@ async function findImage() {
                         const newContont = data.replace(`url: '${myurl[0]}'`, `url: '${image}'`)
                         fs.writeFile(process.cwd() + '/src/data/date.ts', newContont, 'utf8', function (err) {
                             if (err) return console.log('失败')
-                            console.log('成功')
                             resolved(0)
                         })
                     })
                 })
             )
         }
-        /** 所有任务成功时，再进行下一步 */
+        /** 获取所有封面之后，再进行下一步 */
         Promise.all(queue).then((value) => {
+            console.log('\n所有封面获取成功\n')
             return resolve(0)
         })
     })
