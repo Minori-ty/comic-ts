@@ -5,9 +5,9 @@ import fs from 'fs'
 interface ICover {
     /** 漫画地址 */
     [key: string]: {
-        /** 提示 */
+        /** 图片的alt */
         alt: string
-        /** 封面地址 */
+        /** 豆瓣地址 */
         url: string
     }
 }
@@ -40,9 +40,16 @@ async function findImage() {
         for (const key in cover) {
             queue.push(
                 new Promise(async (resolved, rejected) => {
+                    /** 豆瓣地址 */
                     const url = cover[key].url
+
+                    /** 豆瓣网页 */
                     const html = await axios.get(url)
+
+                    /** cheerio对象 */
                     const $ = cheerio.load(html.data)
+
+                    /** 获取到的封面 */
                     const image = $(`[alt="${cover[key].alt}"]`).attr('src')
                     console.log(image)
 
@@ -51,7 +58,6 @@ async function findImage() {
                         const str = data.replaceAll(/(\n|\s)/g, '')
                         // 构造正则表达式
                         const reg = new RegExp(`(?<='${key}',url:').+?(?=',path)`, 'g')
-                        // console.log(str)
 
                         // 获取封面链接
                         const myurl = str.match(reg)

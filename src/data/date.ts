@@ -55,6 +55,11 @@ export const date = [
                 url: 'https://i0.hdslb.com/bfs/manga-static/15a4fcbf38e05bada3d83e8cf946a7a2aa485ac5.jpg@310w.jpg',
                 path: 'zhibumiedeni',
             },
+            {
+                title: '少年的深渊',
+                url: 'https://img1.doubanio.com/view/subject/s/public/s34210447.jpg',
+                path: 'shaoniandeshenyuan',
+            },
         ],
     },
     {
@@ -76,6 +81,11 @@ export const date = [
                 url: 'https://img9.doubanio.com/view/photo/m/public/p2673595356.webp',
                 path: 'jianmianzhihouwumiaokaishizhandou',
             },
+            {
+                title: '我推的孩子',
+                url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2893858751.webp',
+                path: 'wodantuidenvhai',
+            },
         ],
     },
     {
@@ -86,6 +96,16 @@ export const date = [
                 title: '怪兽8号',
                 url: 'https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2885199746.jpg',
                 path: 'guaishou8hao',
+            },
+            {
+                title: '女友的朋友',
+                url: 'https://hi77-overseas.mangafuna.xyz/nvyoudepengyou/cover/1655863646.jpg.328x422.jpg',
+                path: 'nvyoudepengyou',
+            },
+            {
+                title: '回复术士的重来人生',
+                url: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2638431037.webp',
+                path: 'huifushushidechonglairensheng',
             },
         ],
     },
