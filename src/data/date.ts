@@ -72,11 +72,6 @@ export const date = [
                 path: 'hydxjxrwgb',
             },
             {
-                title: '我推的孩子',
-                url: 'https://i0.hdslb.com/bfs/manga-static/8cc4d8b73742d255c3e5d8843fdff9eaff4ead19.jpg@200w.jpg',
-                path: 'wodantuidenvhai',
-            },
-            {
                 title: '见面之后5秒开始战斗',
                 url: 'https://img9.doubanio.com/view/photo/m/public/p2673595356.webp',
                 path: 'jianmianzhihouwumiaokaishizhandou',
