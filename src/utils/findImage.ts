@@ -20,37 +20,62 @@ const cover: ICover = {
         alt: '呪術廻戦 2',
         url: 'https://movie.douban.com/subject/35765350/',
     },
+    达尔文游戏: {
+        alt: 'ダーウィンズゲーム',
+        url: 'https://movie.douban.com/subject/30372352/',
+    },
+    石纪元: {
+        alt: 'Dr.STONE 龍水',
+        url: 'https://movie.douban.com/subject/35705828/',
+    },
 }
 
 /** 查找最新的封面 */
 async function findImage() {
     return new Promise(async (resolve) => {
+        /** 创造异步队列数组 */
+        const queue: Promise<unknown>[] = []
+
+        /** 把每个异步任务添加到数组中 */
         for (const key in cover) {
-            const url = cover[key].url
-            const html = await axios.get(url)
-            const $ = cheerio.load(html.data)
-            const image = $(`[alt="${cover[key].alt}"]`).attr('src')
-            fs.readFile(process.cwd() + '/src/data/date.ts', 'utf8', function (err, data) {
-                // 去除空格和换行符
-                const str = data.replaceAll(/(\n|\s)/g, '')
-                // 构造正则表达式
-                const reg = new RegExp(`(?<='${key}',url:').+?(?=',path)`, 'g')
-                // console.log(str)
+            queue.push(
+                new Promise(async (resolved, rejected) => {
+                    const url = cover[key].url
+                    const html = await axios.get(url)
+                    const $ = cheerio.load(html.data)
+                    const image = $(`[alt="${cover[key].alt}"]`).attr('src')
+                    console.log(image)
 
-                // 获取封面链接
-                const myurl = str.match(reg)
+                    fs.readFile(process.cwd() + '/src/data/date.ts', 'utf8', function (err, data) {
+                        // 去除空格和换行符
+                        const str = data.replaceAll(/(\n|\s)/g, '')
+                        // 构造正则表达式
+                        const reg = new RegExp(`(?<='${key}',url:').+?(?=',path)`, 'g')
+                        // console.log(str)
 
-                // 如果链接不存在，则退出
-                if (!myurl) return console.log('找不到封面链接')
+                        // 获取封面链接
+                        const myurl = str.match(reg)
 
-                const newContont = data.replace(`url: '${myurl[0]}'`, `url: '${image}'`)
-                fs.writeFile(process.cwd() + '/src/data/date.ts', newContont, 'utf8', function (err) {
-                    if (err) return console.log('失败')
-                    console.log('成功')
+                        // 如果链接不存在，则退出
+                        if (!myurl) {
+                            console.log('找不到封面链接')
+                            return rejected(0)
+                        }
+
+                        const newContont = data.replace(`url: '${myurl[0]}'`, `url: '${image}'`)
+                        fs.writeFile(process.cwd() + '/src/data/date.ts', newContont, 'utf8', function (err) {
+                            if (err) return console.log('失败')
+                            console.log('成功')
+                            resolved(0)
+                        })
+                    })
                 })
-            })
-            return resolve(0)
+            )
         }
+        /** 所有任务成功时，再进行下一步 */
+        Promise.all(queue).then((value) => {
+            return resolve(0)
+        })
     })
 }
 

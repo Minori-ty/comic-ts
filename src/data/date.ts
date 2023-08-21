@@ -6,12 +6,12 @@ export const date = [
         list: [
             {
                 title: '石纪元',
-                url: 'https://img2.doubanio.com/view/subject/l/public/s33469402.jpg',
+                url: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2874474640.jpg',
                 path: 'drstone',
             },
             {
                 title: '咒术回战',
-                url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2889693741.webp',
+                url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2889693741.jpg',
                 path: 'zhoushuhuizhan',
             },
             {
@@ -84,7 +84,7 @@ export const date = [
         list: [
             {
                 title: '怪兽8号',
-                url: 'undefined',
+                url: 'https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2885199746.jpg',
                 path: 'guaishou8hao',
             },
         ],
@@ -127,13 +127,13 @@ export const day = [
     },
     {
         title: '渡君的xx即将崩坏',
-        url: 'https://i0.hdslb.com/bfs/manga-static/d115cb86206cc2431ab61ce50a8961a99bb522e5.jpg@310w.jpg',
+        url: 'https://bkimg.cdn.bcebos.com/pic/267f9e2f070828381f30d1dc70d0be014c086f065beb?x-bce-process=image/resize,m_lfit,w_536,limit_1/quality,Q_70',
         path: 'dujundexxjijiangbenghuai',
         day: 20,
     },
     {
         title: '达尔文游戏',
-        url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2571212851.webp',
+        url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2571212851.jpg',
         path: 'daerwenyouxi',
         day: 12,
     },

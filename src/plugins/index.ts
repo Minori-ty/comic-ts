@@ -4,26 +4,27 @@ import findImage from '../utils/findImage'
 export default function myplugin(): Plugin {
     return {
         name: 'myplugin',
-        options(): any {
+        async options(options) {
             console.log('1')
+            return new Promise(async (resolve) => {
+                console.log('options')
+
+                await findImage()
+                return resolve(options)
+            })
         },
         buildStart() {
             console.log('2')
         },
         config(config) {
             // console.log(config)
-            return {}
+            // return {}
         },
         configResolved(resolveConfig) {
             console.log('4')
         },
         configureServer(server) {
-            let flag = false
             server.middlewares.use(async (req, res, next) => {
-                if (!flag) {
-                    await findImage()
-                    flag = true
-                }
                 next()
             })
         },
