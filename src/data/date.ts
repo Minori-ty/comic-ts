@@ -1,5 +1,8 @@
 import { mapDate } from '../utils/mapDate'
-export const date = [
+import type { dateType, dayType } from './date.d'
+import dayjs from 'dayjs'
+
+export const date: dateType = [
     {
         date: '星期一',
         name: '1',
@@ -54,11 +57,6 @@ export const date = [
                 title: '致不灭的你',
                 url: 'https://i0.hdslb.com/bfs/manga-static/15a4fcbf38e05bada3d83e8cf946a7a2aa485ac5.jpg@310w.jpg',
                 path: 'zhibumiedeni',
-            },
-            {
-                title: '少年的深渊',
-                url: 'https://img1.doubanio.com/view/subject/s/public/s34210447.jpg',
-                path: 'shaoniandeshenyuan',
             },
         ],
     },
@@ -121,7 +119,8 @@ export const date = [
         list: [],
     },
 ]
-export const day = [
+
+export const day: dayType = [
     {
         title: '转生成为了只有乙女游戏破灭Flag的邪恶大小姐',
         url: 'https://img2.doubanio.com/view/photo/m/public/p2590345102.webp',
@@ -163,6 +162,21 @@ export const day = [
         url: 'https://img9.doubanio.com/view/photo/l/public/p2525362524.webp',
         path: 'grandblue',
         day: 7,
+    },
+    {
+        title: '少年的深渊',
+        url: 'https://img1.doubanio.com/view/subject/s/public/s34210447.jpg',
+        path: 'shaoniandeshenyuan',
+        day: (function () {
+            let start = dayjs('2023-08-03')
+            while (dayjs().isAfter(start)) {
+                start = start.add(2, 'week')
+            }
+            if (start.diff(dayjs(), 'day') > 7) {
+                return Number(start.subtract(2, 'week'))
+            }
+            return Number(start.format('D'))
+        })(),
     },
 ]
 
