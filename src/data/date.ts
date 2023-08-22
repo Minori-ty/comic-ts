@@ -173,7 +173,7 @@ export const day: dayType = [
                 start = start.add(2, 'week')
             }
             if (start.diff(dayjs(), 'day') > 7) {
-                return Number(start.subtract(2, 'week'))
+                return Number(start.subtract(2, 'week').format('D'))
             }
             return Number(start.format('D'))
         })(),
