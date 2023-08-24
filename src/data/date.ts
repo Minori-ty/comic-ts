@@ -19,12 +19,12 @@ export const date: dateType = [
             },
             {
                 title: '海贼王',
-                url: 'https://img9.doubanio.com/view/photo/l/public/p2197828404.webp',
+                url: 'https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2197828404.webp',
                 path: 'haizeiwang',
             },
             {
                 title: '间谍过家家',
-                url: 'https://img1.doubanio.com/view/photo/l/public/p2869306649.webp',
+                url: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2878984749.webp',
                 path: 'jiandieguojiajia',
             },
         ],
@@ -71,7 +71,7 @@ export const date: dateType = [
             },
             {
                 title: '见面之后5秒开始战斗',
-                url: 'https://img9.doubanio.com/view/photo/m/public/p2673595356.webp',
+                url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2644698403.webp',
                 path: 'jianmianzhihouwumiaokaishizhandou',
             },
             {
@@ -180,4 +180,5 @@ export const day: dayType = [
     },
 ]
 
+/** 总的时间 */
 export default mapDate(date, day)
