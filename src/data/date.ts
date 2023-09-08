@@ -8,13 +8,8 @@ export const date: dateType = [
         name: '1',
         list: [
             {
-                title: '石纪元',
-                url: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2874474640.jpg',
-                path: 'drstone',
-            },
-            {
                 title: '咒术回战',
-                url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2889693741.jpg',
+                url: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2897265429.jpg',
                 path: 'zhoushuhuizhan',
             },
             {
@@ -47,11 +42,6 @@ export const date: dateType = [
                 title: '租借女友',
                 url: 'https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2578658472.webp',
                 path: 'nvpengyoujiewoyixia',
-            },
-            {
-                title: '化物语',
-                url: 'https://i0.hdslb.com/bfs/manga-static/2d65f10f2d2f6e0f09ea8e20f23a6d397ef185d1.jpg@310w.jpg',
-                path: 'huawuyu',
             },
             {
                 title: '致不灭的你',
